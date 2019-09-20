@@ -1,0 +1,9 @@
+code with bug:
+def multiply(a b)
+  a * b
+end
+
+solution:
+def multiply(a, b)
+  a * b
+end
