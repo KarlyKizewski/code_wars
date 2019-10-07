@@ -1,0 +1,34 @@
+# You receive some random elements as a space-delimited string. 
+# Check if the elements are part of an ascending sequence of integers starting with 1, 
+# with an increment of 1 (e.g. 1, 2, 3, 4).
+
+# Return:
+
+# 0 if the elements can form such a sequence, and no number is missing ("not broken", e.g. "1 2 4 3")
+# 1 if there are any non-numeric elements in the input ("invalid", e.g. "1 2 a")
+# n if the elements are part of such a sequence, 
+# but some numbers are missing, and n is the lowest of them ("broken", e.g. "1 2 4" or "1 5")
+
+# solution:
+
+  # check if numbers are present, 0
+  # check if 1 is first number
+  # if complete, 0
+  # if next number isn't 1 + 1
+  # if one number missing return that number 
+  # if more than one missing, return lowest
+  # if non numberic number present, 1
+  # boolean operator?
+  
+def find_missing_number(sequence)
+  return 0 if sequence.empty?
+  return 1 if /[a-z]/.match(sequence)
+  seq = sequence.split.map!(&:to_i).sort
+  return 1 if seq.first != 1
+  seq.each_with_index do |num, index|
+    if seq[index+1] != num+1 && index != seq.length-1
+      return num + 1
+    end
+  end
+  0
+end
