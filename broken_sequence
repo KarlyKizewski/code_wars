@@ -32,3 +32,36 @@ def find_missing_number(sequence)
   end
   0
 end
+
+
+#other submissions found interesting...
+
+def find_missing_number(sequence)
+  number_sequence = sequence.split.map(&:to_i).sort
+  
+  number_sequence.each.with_index(1) do |actual, expected|
+    return expected unless actual == expected
+  end
+  
+  0
+end
+
+
+def find_missing_number(sequence)
+  sequence.split.map(&:to_i).sort.each.with_index(1) do |n, i|
+    return i if n != i
+  end
+  0
+end
+
+
+
+def find_missing_number(sequence)
+  array_sequence = sequence.split.map(&:to_i).sort
+  
+  array_sequence.each.with_index(1) do |actual, expected|
+    return expected if actual != expected
+  end
+  
+  0
+end
